@@ -1,6 +1,8 @@
 # fixed size sliding window
-# space complexity is O()
-# time complexity is O()
+# space complexity is O(1) the only extra space that is created is a constant 
+# amount of variables which is independent of the 
+
+# time complexity is O(n) with n being the number of entires in the array
 
 
 def MaxMeanSubArray(arr, k):
@@ -45,8 +47,11 @@ def main():
     k = 4
     print(MaxMeanSubArray(arr, k))
 
-    
+
 
 
 if __name__ == "__main__":
     main()
+
+
+# this problem took me 14 min to write
