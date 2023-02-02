@@ -1,4 +1,22 @@
+# Forward/backward two-pointer
 
+# time complexity is O(n)
+# the time is porportional to the length of the array because you search through
+# the array once
+
+# space complexity is O(n)
+# beside the constant amount space required for the vowel set and the two 
+# pointers, there must also be a list made that is the same length as s
+
+#   approach
+#   1. convert the string to a list
+#   2. have a pointer at the beggining and the end of the list
+#   3. keep moving the pointeres closer to the center
+#       a. dont move the pointer if it has landed on a vowel
+#   4. if both are vowels swap
+#   5. stop when you've reached the middle
+
+# this problem took me about 15 min
 
 def ReverseVowels(s):
 
