@@ -18,7 +18,6 @@ def MaxMeanSubArray(arr, k):
     total = 0
     first = 0
     second = 0
-    
 
     while second < len(arr):
         total += arr[second]
@@ -31,9 +30,6 @@ def MaxMeanSubArray(arr, k):
         second += 1
 
     return max_mean
-
-
-
 
 def main():
     arr = [4, 5, -3, 2, 6, 1]
@@ -52,10 +48,5 @@ def main():
     k = 4
     print(MaxMeanSubArray(arr, k))
 
-
-
-
 if __name__ == "__main__":
     main()
-
-
