@@ -1,3 +1,5 @@
+# Binary Search Variation
+
 # time complexity is O(log n)
 #
 # This method of solving the problem, utilizes binary search. For a value to be "correct" for 
@@ -25,6 +27,8 @@
 # process narrows down the size of the possible values in the array to become smaller and smaller
 # after each itteration. It cuts down the possible indices of the skip by half each itteration. 
 # Eventually, youre only looking at a single value and you return that value.
+
+# took 13 min
 
 def MissingInteger(lst, n):
     

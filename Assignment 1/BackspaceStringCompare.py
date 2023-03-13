@@ -1,3 +1,16 @@
+# two stack approach
+
+# time is O(m + n)
+# it must itterate through the length of both strings
+
+# space is O(m + n)
+# it must keep a stack that is dependent on the size of both strings
+
+#   Approach
+#   1. append all new non '#' characters onto the stack
+#   2. pop the character at the top of the stack when character is a '#'
+
+# this took 6 min
 
 
 def BackspaceStringCompare(s1, s2):

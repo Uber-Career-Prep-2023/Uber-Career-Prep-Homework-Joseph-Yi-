@@ -6,7 +6,9 @@
 # time complexity is O(n) with n being the number of entires in the array
 
 #   Notes
-#   1. 
+#   used kadane algorithm for this approach
+#   1. itterate through the list keeping track of local max
+#   2. update the global max when found
 
 # this problem took me about 10 min to write
 
