@@ -10,8 +10,13 @@
 # size of the entire array. 
 
 # 	Approach
-# 	1. 
-# 
+# 	1. continuously hash all total sums 
+#	2. if a sum is not yet hashed, add it
+# 	3. if a sum does exist increment the total of zero by that value
+		# similar to mean value theorum
+		# if two sums are equal at two different points in the array
+		# the sum between the two must be zero
+
 
 # This took me 21 min
 

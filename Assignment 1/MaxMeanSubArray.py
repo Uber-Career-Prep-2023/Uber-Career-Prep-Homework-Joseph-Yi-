@@ -21,12 +21,19 @@ def MaxMeanSubArray(arr, k):
     first = 0
     second = 0
 
+    # itterates through the 
     while second < len(arr):
         total += arr[second]
 
+        # once window is correct size
         if second - first + 1 == k:
+            # calculate mean
             curr_mean = total / k
+
+            # calculate new max mean
             max_mean = max(max_mean, curr_mean)
+
+            # decrease total by the first element in window
             total -=arr[first]
             first += 1
         second += 1
