@@ -1,4 +1,4 @@
-public class BinarSearchTree {
+public class BinarySearchTree {
 
 	private Node root;
 
@@ -9,7 +9,7 @@ public class BinarSearchTree {
 
    	private int findMin(Node node) {
 		if(node == null)
-			return null;
+			return -1;
 
 		//goes all the way left
 		if(node.left == null)
@@ -25,7 +25,7 @@ public class BinarSearchTree {
 
 	private int findMax(Node node) {
 		if(node == null) {
-			return null;
+			return -1;
 		}
 		//goes all the way right
 		if(node.right == null)
@@ -58,7 +58,7 @@ public class BinarSearchTree {
 		root = insert(val, root);
 	}
 
-	public Node insert(Node node, int val) {
+	private Node insert(int val, Node node) {
 
 		if(node == null)
 			return new Node(val, null, null);
@@ -74,14 +74,52 @@ public class BinarSearchTree {
 
 	// deletes the Node with data val, if it exists
 	public int delete(int val) {
-		
+		this.root = delete(this.root, val);
+		return val;
 	}
 
 	private Node delete(Node node, int val) {
+		if(node == null)
+			return null;
+		if (val < node.val)
+            node.left = delete(node.left, val);
+        else if (val > node.val)
+            node.right = delete(node.right, val);
+        else {
+			
+			// no children
+			if(node.left == null && node.right == null)
+				node = null;
+		
+			// only 1 child
+			else if(node.left == null)
+				node = node.right;
+			else if(node.right == null)
+				node = node.left;
 
+			// node has 2 children
+			else {
+
+				// inorder successor
+				Node replace = findMinNode(node.right);
+
+				// replace value
+				node.val = replace.val;
+
+				// recurse again to delete
+				node.right = delete(node.right, replace.val);
+			}
+		}
+
+		return node;
 	}
 
-	private 
+	private Node findMinNode(Node node) {
+
+		while(node.left != null)
+			node = node.left;
+		return node;
+	}
 
 	private class Node {
 
