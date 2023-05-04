@@ -11,7 +11,7 @@
 
 public class IsPalindrome {
 
-    public boolean IsPalindrome(Node head){
+    public boolean isPalindrome(Node head){
 
         Node front = head;
 

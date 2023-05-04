@@ -17,7 +17,7 @@
 public class DisconnectCycle {
 
 
-    public static void DisconnectCycle(Node head) {
+    public static void disconnectCycle(Node head) {
         Node slow = head;
         Node fast = head;
     

@@ -10,7 +10,7 @@
 
 public class DedupSortedList {
     
-    public Node DedupSortedList(Node head) {
+    public Node dedupSortedList(Node head) {
         if (head == null || head.next == null) {
             return head;
         }

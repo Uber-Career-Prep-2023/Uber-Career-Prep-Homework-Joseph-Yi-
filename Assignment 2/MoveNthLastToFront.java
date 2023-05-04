@@ -11,7 +11,7 @@
 
 public class MoveNthLastToFront {
     
-    public Node MoveNthLastToFront(Node head, int n) {
+    public Node moveNthLastToFront(Node head, int n) {
         if (head == null || n <= 0) {
             return head;
         }
