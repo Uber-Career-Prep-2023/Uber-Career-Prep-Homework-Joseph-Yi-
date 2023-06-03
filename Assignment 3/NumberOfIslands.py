@@ -1,9 +1,24 @@
+# graph - DFS
+
 # Space Complexity is O(1)
-# the only additional space that is need 
+# the only additional space that is needed are the varibales 
+# storing the rows length and count, all of which would be constant
+# independent of the size of the matrix. 
 
 # Time complexity is O(n * m) where n is number of rows and m is number of columns
+# this function performs a DFS, which in the worst case will evaluate every single 
+# entry in the matrix, thus resulting in the time being dependent on the 
+# total size of the matrix
 
-def numIslands(grid):
+# Approach
+# the function iterates through the matrix. Whenever the loop hits a 
+# island, it performs a dfs, marking all adjacent island spaces with a
+# 'x'. This increments the count. This continues until the every location
+# in the array is visited. 
+
+# This problem took me 7 min
+
+def numberOfIslands(grid):
     if not grid:
         return 0
     
@@ -27,7 +42,7 @@ def dfs(row, col):
             return
         
         # marks the adjacent values
-        grid[row][col] = '#'
+        grid[row][col] = 'x'
         
         dfs(row + 1, col)  # Check down
         dfs(row - 1, col)  # Check up
