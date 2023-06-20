@@ -1,3 +1,5 @@
+# Graph - BFS
+
 from collections import deque
 
 def AlternatingPath(origin, destination, graph):
