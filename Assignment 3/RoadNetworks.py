@@ -12,7 +12,11 @@
 # This makes the total runtime be O(V + E)
 
 # Approach
-# I create a 
+# I create an adjacency list with the edges given. I then perform a simple 
+# DFS on the graph marking all the visited in a set. I then count the number of 
+# Connected components in the visisted set
+
+# This took me 22 min
 
 # Vertices are towns
 # Edges are roads
