@@ -41,7 +41,7 @@ def RoadNetworks(vertices, edges):
     count = 0
 
 
-    for vertex in vertices:
+    for vertex in adjacency_list:
         if vertex not in visited:
             dfs(vertex)
             count += 1

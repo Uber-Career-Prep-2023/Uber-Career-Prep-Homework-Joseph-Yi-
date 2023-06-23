@@ -10,7 +10,7 @@
 # Approach
 # You split based off spaces. Then reverse the list and join again
 
-# This took me  min
+# This took me  min 3 min
 
 def ReverseWords(string):
 
