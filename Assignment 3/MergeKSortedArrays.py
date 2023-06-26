@@ -1,12 +1,16 @@
 # Heap
 
 # Time complexity is O(n log k) where there are n entries in k arrays
-# 
+# The function uses a heap which processes in log k per opperation. There are
+# a total of n opperations resulting in a O(n log k)
 
-# Space complexity is 
+# Space complexity is O(n)
+# The result matrix must store n entries
+
+# This took me 24 min
 import heapq
 
-def merge_k_sorted_arrays(arrays):
+def MergeKSortedArrays(arrays):
     result = []
     heap = []
 
@@ -27,3 +31,7 @@ def merge_k_sorted_arrays(arrays):
             heapq.heappush(heap, (arrays[array_index][element_index + 1], array_index, element_index + 1))
     
     return result
+
+
+
+print(MergeKSortedArrays([[1, 2, 3, 4, 5], [1, 3, 5, 7, 9]]))

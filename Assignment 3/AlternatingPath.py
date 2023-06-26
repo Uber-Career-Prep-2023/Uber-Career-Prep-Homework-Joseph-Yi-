@@ -1,5 +1,13 @@
 # Graph - BFS
 
+# Time complexity is O(V + E)
+# The bfs visits each vertex and edge at least once
+
+# Space Complexity is O(V)
+# the graph stores data depedent on the number of vertices.
+
+# this took me 29 min
+
 from collections import deque
 
 def AlternatingPath(origin, destination, graph):
@@ -7,22 +15,20 @@ def AlternatingPath(origin, destination, graph):
     queue = deque([(origin, 'blue'), (origin, 'red')])
     visited = set([(origin, 'blue'), (origin, 'red')])
 
-    # Initialize a dictionary to store the shortest path length
     shortest_path = {origin: 0}
 
-    # Perform BFS
     while queue:
         node, color = queue.popleft()
 
-        # Check if the current node is the destination
         if node == destination:
             return shortest_path[node]
 
-        # Explore neighboring nodes
+        # Checks neighbors
         for neighbor, edge_color in graph.get(node, []):
-            # Check if the edge color alternates
+
+            # ensure altternating
             if edge_color != color:
-                # Calculate the length of the new path
+                # calculates length
                 new_length = shortest_path[node] + 1
 
                 # Check if the neighbor has not been visited or a shorter path is found
@@ -31,7 +37,7 @@ def AlternatingPath(origin, destination, graph):
                     visited.add((neighbor, edge_color))
                     queue.append((neighbor, edge_color))
 
-    # No alternating path found
+    # No path
     return -1
 
 
@@ -43,6 +49,6 @@ graph = {
     'E': [('C', 'red')]
 }
 
-origin = 'A'
-destination = 'E'
+origin = 'E'
+destination = 'D'
 print(AlternatingPath(origin, destination, graph))

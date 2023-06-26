@@ -12,22 +12,23 @@
 # This makes the total runtime be O(V + E)
 
 # Approach
-# I create an adjacency list with the edges given. I then perform a simple 
+# I create an adjacency list with the edges given since the vertices dont matter. I then perform a simple 
 # DFS on the graph marking all the visited in a set. I then count the number of 
 # Connected components in the visisted set
 
-# This took me 22 min
+# This took me 37 min
 
 # Vertices are towns
 # Edges are roads
+
+from collections import defaultdict
 def RoadNetworks(vertices, edges):
 
     # Create an adjacency list to represent the graph
-    adjacency_list = {v: [] for v in vertices}
-    for edge in edges:
-        v1, v2 = edge
-        adjacency_list[v1].append(v2)
-        adjacency_list[v2].append(v1)
+    adjacency_list = defaultdict(list)
+    for town1, town2 in edges:
+        adjacency_list[town1].append(town2)
+        adjacency_list[town2].append(town1)
 
     visited = set()
 

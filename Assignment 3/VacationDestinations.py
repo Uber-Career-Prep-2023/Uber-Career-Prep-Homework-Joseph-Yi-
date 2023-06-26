@@ -1,3 +1,12 @@
+# Graph - DFS
+
+# Time complexity is O(V + E)
+# The DFS visits each vertex and edge once
+
+# Space complexity is O(V)
+# the graph stores the information dependent on the number of vertices
+
+# This took me 17 min
 from collections import defaultdict, deque
 
 

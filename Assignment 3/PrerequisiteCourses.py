@@ -1,48 +1,57 @@
-from collections import defaultdict
-import copy
+# Graph - DFS
 
+# Time complexity is O(n + m)
+# creating graph requires O(m) time. The dfs
+# will take worst O(n) time. The two in succeession take O(n + m)
 
-def build_graph(courses, prerequisites):
-    graph = defaultdict(list)
+# Space complexity is O(n)
+# The graph stores dependent on the number of courses that exist.
 
-    for course, prerequisite in prerequisites.items():
-        graph[prerequisite].append(course)
+# This took me 28 min
 
-    return graph
+# let n be the number of courses and m be the number of prereq relationships
+def PrerequisiteCourses(courses, prerequisites):
 
-
-def topological_sort(graph):
+    prereq_dict = {course: set() for course in courses}
+    for course, prereq in prerequisites.items():
+        prereq_dict[course] = set(prereq)
+    
+    valid_order = []
     visited = set()
-    stack = []
 
     def dfs(course):
+
+        if course in visited:
+            return False
+        if course in valid_order:
+            return True
+
         visited.add(course)
-        for neighbor in graph[course]:
-            if neighbor not in visited:
-                dfs(neighbor)
-        stack.append(course)
 
-    for course in graph.keys():
-        if course not in visited:
-            dfs(course)
+        for prereq in prereq_dict[course]:
+            if not dfs(prereq):
+                return False
 
-    return stack[::-1]
+        visited.remove(course)
+        valid_order.append(course)
+        return True
 
+    for course in courses:
+        if not dfs(course):
+            return []
 
-def course_order(courses, prerequisites):
-    prerequisites_copy = copy.deepcopy(prerequisites)
-    graph = build_graph(courses, prerequisites_copy)
-    order = topological_sort(graph)
-    return order
+    valid_order.reverse()
+    return valid_order
 
 
 courses = ["Intro to Programming", "Data Structures", "Advanced Algorithms", "Operating Systems", "Databases"]
 prerequisites = {
-    "Data Structures": "Intro to Programming",
-    "Advanced Algorithms": "Data Structures",
-    "Operating Systems": "Advanced Algorithms",
-    "Databases": "Advanced Algorithms"
+    "Data Structures": ["Intro to Programming"],
+    "Advanced Algorithms": ["Data Structures"],
+    "Operating Systems": ["Advanced Algorithms"],
+    "Databases": ["Advanced Algorithms"]
 }
 
-valid_order = course_order(courses, prerequisites)
-print(valid_order)
+print(PrerequisiteCourses(courses, prerequisites))
+
+
