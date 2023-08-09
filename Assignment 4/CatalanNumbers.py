@@ -1,13 +1,19 @@
-def CatalanNumber(n):
-    catalan_numbers = [0] * (n + 1)
-    catalan_numbers[0] = 1
+def can_transform_to_target(a, b, c, d):
+    def gcd(x, y):
+        while y:
+            x, y = y, x % y
+        return x
 
-    for i in range(1, n + 1):
-        for j in range(i):
-            catalan_numbers[i] += catalan_numbers[j] * catalan_numbers[i - j - 1]
+    if c < a or d < b:
+        return "No"
 
-    return catalan_numbers
+    if (c - a) % gcd(a, b) == 0 and (d - b) % gcd(a, b) == 0 and (c - a) // gcd(a, b) == (d - b) // gcd(a, b):
+        return "Yes"
+    else:
+        return "No"
 
-# Test examples
-print(CatalanNumber(1))  # Output: [1, 1]
-print(CatalanNumber(5))  # Output: [1, 1, 2, 5, 14, 42]
+# Example usage:
+a, b = 1, 2
+c, d = 3, 6
+result = can_transform_to_target(a, b, c, d)
+print(result)  # Output will be "No" for this example.
