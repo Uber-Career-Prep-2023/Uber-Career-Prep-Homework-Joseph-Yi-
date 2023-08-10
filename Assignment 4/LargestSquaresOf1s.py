@@ -1,3 +1,12 @@
+# DP memorization
+
+# Time complexity is O(n^2)
+# you search every column and row of the matrix thus O(n^2)
+
+# Space Complexity is O(n^2)
+# the dp array is the same size as the matrix
+
+# This function took me 31 min
 def largestSquareOf1s(matrix):
     if not matrix:
         return 0
@@ -13,14 +22,13 @@ def largestSquareOf1s(matrix):
     for i in range(1, rows + 1):
         for j in range(1, cols + 1):
             if matrix[i - 1][j - 1] == 1:
-                # If the current cell is 1, we can extend the square by considering the minimum value
-                # of the left, upper, and upper-left cells and adding 1.
+                
+                # updates the new max to be the min of all adjacent sides
                 dp[i][j] = min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1
 
-                # Update the maximum side length if the current cell can form a larger square.
                 max_side = max(max_side, dp[i][j])
 
-    # Return the area of the largest square (side length squared).
+    
     return max_side
 
 

@@ -9,6 +9,7 @@
 # Space Complexity - O(m)
 # the dp array is created based on the target sum value
 
+# This took me 18 min
 def coinChange(coins, target_sum):
 
     dp = [0] * (target_sum + 1)

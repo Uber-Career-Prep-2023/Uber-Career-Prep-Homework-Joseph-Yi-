@@ -1,19 +1,23 @@
-def can_transform_to_target(a, b, c, d):
-    def gcd(x, y):
-        while y:
-            x, y = y, x % y
-        return x
+# DP Memorization
 
-    if c < a or d < b:
-        return "No"
+# Time comeplxity is O(n^2)
+# The inner outer loop runs n times with the inner loop running upwards of n times
+# resulting in a time complexity of n^2
 
-    if (c - a) % gcd(a, b) == 0 and (d - b) % gcd(a, b) == 0 and (c - a) // gcd(a, b) == (d - b) // gcd(a, b):
-        return "Yes"
-    else:
-        return "No"
+# Space complexity is O(n)
+# because you store n number of catalan numbers in the array.
 
-# Example usage:
-a, b = 1, 2
-c, d = 3, 6
-result = can_transform_to_target(a, b, c, d)
-print(result)  # Output will be "No" for this example.
+# This took 8 min because I know the Catalan sequence
+def generate_catalan_numbers(n):
+    catalan_numbers = [0] * (n + 1)
+    catalan_numbers[0] = 1
+
+    for i in range(1, n + 1):
+        for j in range(i):
+            catalan_numbers[i] += catalan_numbers[j] * catalan_numbers[i - j - 1]
+
+    return catalan_numbers
+
+# Test examples
+print(generate_catalan_numbers(1))  # Output: [1, 1]
+print(generate_catalan_numbers(5))  # Output: [1, 1, 2, 5, 14, 42]
